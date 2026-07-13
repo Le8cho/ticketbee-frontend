@@ -5,20 +5,35 @@ import { estadoTicketBadgeClass, estadoTicketLabels } from '@/lib/ticket-estado'
 import { cn } from '@/lib/utils'
 import { Badge } from '@/components/ui/badge'
 import { DataTableColumnHeader } from '@/components/data-table'
+import { LongText } from '@/components/long-text'
 
 export const ticketsColumns: ColumnDef<TicketListItem>[] = [
   {
-    accessorKey: 'ticket_id',
+    id: 'dispositivo',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Ticket' />
+      <DataTableColumnHeader column={column} title='Dispositivo' />
     ),
-    cell: ({ row }) => (
-      <div className='ps-3 font-mono text-xs'>
-        {row.getValue<string>('ticket_id').slice(0, 8)}
-      </div>
-    ),
+    cell: ({ row }) => {
+      const { dispositivo_marca, dispositivo_modelo } = row.original
+      const label =
+        dispositivo_marca && dispositivo_modelo
+          ? `${dispositivo_marca} ${dispositivo_modelo}`
+          : '—'
+      return <LongText className='max-w-40 ps-3'>{label}</LongText>
+    },
     meta: { className: 'ps-3' },
     enableHiding: false,
+  },
+  {
+    accessorKey: 'servicio_nombre',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='Servicio' />
+    ),
+    cell: ({ row }) => (
+      <LongText className='max-w-48'>
+        {row.getValue('servicio_nombre') ?? '—'}
+      </LongText>
+    ),
   },
   {
     accessorKey: 'estado',
@@ -32,16 +47,6 @@ export const ticketsColumns: ColumnDef<TicketListItem>[] = [
           {estadoTicketLabels[estado]}
         </Badge>
       )
-    },
-  },
-  {
-    accessorKey: 'precio_base',
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title='Precio base' />
-    ),
-    cell: ({ row }) => {
-      const value = row.getValue('precio_base')
-      return <div>{value ? `S/ ${value}` : '—'}</div>
     },
   },
   {

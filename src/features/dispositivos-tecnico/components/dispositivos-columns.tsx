@@ -1,4 +1,5 @@
 import { format } from 'date-fns'
+import { Link } from '@tanstack/react-router'
 import { type ColumnDef } from '@tanstack/react-table'
 import { type Dispositivo } from '@/api/dispositivos'
 import { Badge } from '@/components/ui/badge'
@@ -18,6 +19,22 @@ export const dispositivosColumns: ColumnDef<Dispositivo>[] = [
     ),
     meta: { className: 'ps-3' },
     enableHiding: false,
+  },
+  {
+    id: 'cliente',
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title='Cliente' />
+    ),
+    cell: ({ row }) => (
+      <Link
+        to='/tecnico/clientes/$clienteId'
+        params={{ clienteId: row.original.cliente_id }}
+        className='text-nowrap underline-offset-4 hover:underline'
+        onClick={(e) => e.stopPropagation()}
+      >
+        {row.original.cliente.nombre}
+      </Link>
+    ),
   },
   {
     id: 'tipo',

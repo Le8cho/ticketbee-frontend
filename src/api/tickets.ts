@@ -8,8 +8,11 @@ export interface TicketResponse {
   ticket_id: string
   cliente_id: string
   servicio_id: string
+  servicio_nombre: string | null
   tecnico_id: string | null
   dispositivo_id: string | null
+  dispositivo_marca: string | null
+  dispositivo_modelo: string | null
   estado: EstadoTicket
   descripcion: string | null
   precio_base: string | null // Decimal serializado como string
@@ -26,7 +29,10 @@ export interface TicketListItem {
   ticket_id: string
   estado: EstadoTicket
   servicio_id: string
+  servicio_nombre: string | null
   dispositivo_id: string | null
+  dispositivo_marca: string | null
+  dispositivo_modelo: string | null
   precio_base: string | null
   precio_final: string | null
   creado_en: string

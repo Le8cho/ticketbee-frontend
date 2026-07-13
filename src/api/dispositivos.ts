@@ -6,8 +6,16 @@ export interface TipoDispositivo {
   nombre: string
 }
 
+export interface ClienteBasico {
+  cliente_id: string
+  nombre: string
+  email: string
+}
+
 export interface Dispositivo {
   dispositivo_id: string
+  cliente_id: string
+  cliente: ClienteBasico
   tipo_dispositivo_id: number
   tipo_dispositivo: TipoDispositivo
   marca: string

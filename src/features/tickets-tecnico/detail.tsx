@@ -100,7 +100,9 @@ export function TicketDetalleTecnico() {
               <CardHeader>
                 <div className='flex flex-wrap items-center gap-2'>
                   <CardTitle className='text-xl'>
-                    Ticket #{ticket.ticket_id.slice(0, 8)}
+                    {ticket.dispositivo_marca && ticket.dispositivo_modelo
+                      ? `${ticket.dispositivo_marca} ${ticket.dispositivo_modelo}`
+                      : `Ticket #${ticket.ticket_id.slice(0, 8)}`}
                   </CardTitle>
                   <Badge
                     variant='outline'
@@ -110,7 +112,7 @@ export function TicketDetalleTecnico() {
                   </Badge>
                 </div>
                 <CardDescription>
-                  Creado el{' '}
+                  {ticket.servicio_nombre ?? 'Servicio'} · Creado el{' '}
                   {format(new Date(ticket.creado_en), 'dd/MM/yyyy HH:mm')}
                 </CardDescription>
               </CardHeader>
