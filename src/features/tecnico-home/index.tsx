@@ -1,7 +1,7 @@
 import { useClientesQuery } from '@/api/clientes'
 import { type EstadoTicket, useTicketsQuery } from '@/api/tickets'
-import { estadoTicketLabels } from '@/lib/ticket-estado'
 import { useAuthStore } from '@/stores/auth-store'
+import { estadoTicketLabels } from '@/lib/ticket-estado'
 import {
   Card,
   CardDescription,

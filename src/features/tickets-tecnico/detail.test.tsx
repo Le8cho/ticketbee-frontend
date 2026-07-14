@@ -7,8 +7,7 @@ const ticketQueryMock = vi.fn()
 const inertMutation = () => ({ mutateAsync: vi.fn(), isPending: false })
 
 vi.mock('@tanstack/react-router', async (importOriginal) => {
-  const actual =
-    await importOriginal<typeof import('@tanstack/react-router')>()
+  const actual = await importOriginal<typeof import('@tanstack/react-router')>()
   return {
     ...actual,
     getRouteApi: () => ({
@@ -38,9 +37,7 @@ vi.mock('@/components/layout/header', () => ({
   ),
 }))
 vi.mock('@/components/layout/main', () => ({
-  Main: ({ children }: { children?: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
+  Main: ({ children }: { children?: React.ReactNode }) => <div>{children}</div>,
 }))
 vi.mock('@/components/profile-dropdown', () => ({
   ProfileDropdown: () => null,

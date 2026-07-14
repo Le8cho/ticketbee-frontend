@@ -66,14 +66,12 @@ describe('hidratarSesion — auto-aprovisionamiento (Fase 1)', () => {
   })
 
   it('cliente nuevo (404) dispara auto-registro y reintenta /auth/me una sola vez', async () => {
-    obtenerMeMock
-      .mockRejectedValueOnce(axiosError404())
-      .mockResolvedValueOnce({
-        id: '2',
-        nombre: 'Nuevo',
-        email: 'n@x.com',
-        rol: 'cliente',
-      })
+    obtenerMeMock.mockRejectedValueOnce(axiosError404()).mockResolvedValueOnce({
+      id: '2',
+      nombre: 'Nuevo',
+      email: 'n@x.com',
+      rol: 'cliente',
+    })
     registrarClienteMock.mockResolvedValueOnce(undefined)
     const { hidratarSesion, useAuthStore } = await importAuthSession()
 
