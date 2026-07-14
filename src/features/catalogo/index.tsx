@@ -77,6 +77,10 @@ export function Catalogo() {
       </Main>
 
       <ServicioDialog
+        // Fuerza un remount al cambiar de fila (o al pasar a "crear") — si no,
+        // react-hook-form solo aplica defaultValues en el montaje inicial y el
+        // form queda con los valores de la primera vez que se abrió el diálogo.
+        key={currentRow?.servicio_id ?? 'new'}
         currentRow={currentRow}
         open={open}
         onOpenChange={setOpen}

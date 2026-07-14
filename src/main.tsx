@@ -13,6 +13,7 @@ import { handleServerError } from '@/lib/handle-server-error'
 // Registra el listener de sesión de Supabase antes de que el router monte
 // ninguna ruta — ver ensureAuthReady() en api/auth-session.ts.
 import './api/auth-session'
+import './api/mercadopago-client'
 import { DirectionProvider } from './context/direction-provider'
 import { FontProvider } from './context/font-provider'
 import { ThemeProvider } from './context/theme-provider'

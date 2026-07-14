@@ -37,8 +37,14 @@ import { Route as AuthenticatedTecnicoPerfilIndexRouteImport } from './routes/_a
 import { Route as AuthenticatedTecnicoDispositivosIndexRouteImport } from './routes/_authenticated/tecnico/dispositivos/index'
 import { Route as AuthenticatedTecnicoClientesIndexRouteImport } from './routes/_authenticated/tecnico/clientes/index'
 import { Route as AuthenticatedTecnicoCatalogoIndexRouteImport } from './routes/_authenticated/tecnico/catalogo/index'
+import { Route as AuthenticatedClienteTicketsIndexRouteImport } from './routes/_authenticated/cliente/tickets/index'
+import { Route as AuthenticatedClientePerfilIndexRouteImport } from './routes/_authenticated/cliente/perfil/index'
+import { Route as AuthenticatedClientePagoFallidoIndexRouteImport } from './routes/_authenticated/cliente/pago-fallido/index'
+import { Route as AuthenticatedClientePagoExitosoIndexRouteImport } from './routes/_authenticated/cliente/pago-exitoso/index'
+import { Route as AuthenticatedClienteDispositivosIndexRouteImport } from './routes/_authenticated/cliente/dispositivos/index'
 import { Route as AuthenticatedTecnicoTicketsTicketIdRouteImport } from './routes/_authenticated/tecnico/tickets/$ticketId'
 import { Route as AuthenticatedTecnicoClientesClienteIdRouteImport } from './routes/_authenticated/tecnico/clientes/$clienteId'
+import { Route as AuthenticatedClienteTicketsTicketIdRouteImport } from './routes/_authenticated/cliente/tickets/$ticketId'
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
@@ -196,6 +202,36 @@ const AuthenticatedTecnicoCatalogoIndexRoute =
     path: '/catalogo/',
     getParentRoute: () => AuthenticatedTecnicoRouteRoute,
   } as any)
+const AuthenticatedClienteTicketsIndexRoute =
+  AuthenticatedClienteTicketsIndexRouteImport.update({
+    id: '/tickets/',
+    path: '/tickets/',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
+  } as any)
+const AuthenticatedClientePerfilIndexRoute =
+  AuthenticatedClientePerfilIndexRouteImport.update({
+    id: '/perfil/',
+    path: '/perfil/',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
+  } as any)
+const AuthenticatedClientePagoFallidoIndexRoute =
+  AuthenticatedClientePagoFallidoIndexRouteImport.update({
+    id: '/pago-fallido/',
+    path: '/pago-fallido/',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
+  } as any)
+const AuthenticatedClientePagoExitosoIndexRoute =
+  AuthenticatedClientePagoExitosoIndexRouteImport.update({
+    id: '/pago-exitoso/',
+    path: '/pago-exitoso/',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
+  } as any)
+const AuthenticatedClienteDispositivosIndexRoute =
+  AuthenticatedClienteDispositivosIndexRouteImport.update({
+    id: '/dispositivos/',
+    path: '/dispositivos/',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
+  } as any)
 const AuthenticatedTecnicoTicketsTicketIdRoute =
   AuthenticatedTecnicoTicketsTicketIdRouteImport.update({
     id: '/tickets/$ticketId',
@@ -207,6 +243,12 @@ const AuthenticatedTecnicoClientesClienteIdRoute =
     id: '/clientes/$clienteId',
     path: '/clientes/$clienteId',
     getParentRoute: () => AuthenticatedTecnicoRouteRoute,
+  } as any)
+const AuthenticatedClienteTicketsTicketIdRoute =
+  AuthenticatedClienteTicketsTicketIdRouteImport.update({
+    id: '/tickets/$ticketId',
+    path: '/tickets/$ticketId',
+    getParentRoute: () => AuthenticatedClienteRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -232,8 +274,14 @@ export interface FileRoutesByFullPath {
   '/help-center/': typeof AuthenticatedHelpCenterIndexRoute
   '/settings/': typeof AuthenticatedSettingsIndexRoute
   '/tecnico/': typeof AuthenticatedTecnicoIndexRoute
+  '/cliente/tickets/$ticketId': typeof AuthenticatedClienteTicketsTicketIdRoute
   '/tecnico/clientes/$clienteId': typeof AuthenticatedTecnicoClientesClienteIdRoute
   '/tecnico/tickets/$ticketId': typeof AuthenticatedTecnicoTicketsTicketIdRoute
+  '/cliente/dispositivos/': typeof AuthenticatedClienteDispositivosIndexRoute
+  '/cliente/pago-exitoso/': typeof AuthenticatedClientePagoExitosoIndexRoute
+  '/cliente/pago-fallido/': typeof AuthenticatedClientePagoFallidoIndexRoute
+  '/cliente/perfil/': typeof AuthenticatedClientePerfilIndexRoute
+  '/cliente/tickets/': typeof AuthenticatedClienteTicketsIndexRoute
   '/tecnico/catalogo/': typeof AuthenticatedTecnicoCatalogoIndexRoute
   '/tecnico/clientes/': typeof AuthenticatedTecnicoClientesIndexRoute
   '/tecnico/dispositivos/': typeof AuthenticatedTecnicoDispositivosIndexRoute
@@ -260,8 +308,14 @@ export interface FileRoutesByTo {
   '/help-center': typeof AuthenticatedHelpCenterIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
   '/tecnico': typeof AuthenticatedTecnicoIndexRoute
+  '/cliente/tickets/$ticketId': typeof AuthenticatedClienteTicketsTicketIdRoute
   '/tecnico/clientes/$clienteId': typeof AuthenticatedTecnicoClientesClienteIdRoute
   '/tecnico/tickets/$ticketId': typeof AuthenticatedTecnicoTicketsTicketIdRoute
+  '/cliente/dispositivos': typeof AuthenticatedClienteDispositivosIndexRoute
+  '/cliente/pago-exitoso': typeof AuthenticatedClientePagoExitosoIndexRoute
+  '/cliente/pago-fallido': typeof AuthenticatedClientePagoFallidoIndexRoute
+  '/cliente/perfil': typeof AuthenticatedClientePerfilIndexRoute
+  '/cliente/tickets': typeof AuthenticatedClienteTicketsIndexRoute
   '/tecnico/catalogo': typeof AuthenticatedTecnicoCatalogoIndexRoute
   '/tecnico/clientes': typeof AuthenticatedTecnicoClientesIndexRoute
   '/tecnico/dispositivos': typeof AuthenticatedTecnicoDispositivosIndexRoute
@@ -293,8 +347,14 @@ export interface FileRoutesById {
   '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
   '/_authenticated/tecnico/': typeof AuthenticatedTecnicoIndexRoute
+  '/_authenticated/cliente/tickets/$ticketId': typeof AuthenticatedClienteTicketsTicketIdRoute
   '/_authenticated/tecnico/clientes/$clienteId': typeof AuthenticatedTecnicoClientesClienteIdRoute
   '/_authenticated/tecnico/tickets/$ticketId': typeof AuthenticatedTecnicoTicketsTicketIdRoute
+  '/_authenticated/cliente/dispositivos/': typeof AuthenticatedClienteDispositivosIndexRoute
+  '/_authenticated/cliente/pago-exitoso/': typeof AuthenticatedClientePagoExitosoIndexRoute
+  '/_authenticated/cliente/pago-fallido/': typeof AuthenticatedClientePagoFallidoIndexRoute
+  '/_authenticated/cliente/perfil/': typeof AuthenticatedClientePerfilIndexRoute
+  '/_authenticated/cliente/tickets/': typeof AuthenticatedClienteTicketsIndexRoute
   '/_authenticated/tecnico/catalogo/': typeof AuthenticatedTecnicoCatalogoIndexRoute
   '/_authenticated/tecnico/clientes/': typeof AuthenticatedTecnicoClientesIndexRoute
   '/_authenticated/tecnico/dispositivos/': typeof AuthenticatedTecnicoDispositivosIndexRoute
@@ -326,8 +386,14 @@ export interface FileRouteTypes {
     | '/help-center/'
     | '/settings/'
     | '/tecnico/'
+    | '/cliente/tickets/$ticketId'
     | '/tecnico/clientes/$clienteId'
     | '/tecnico/tickets/$ticketId'
+    | '/cliente/dispositivos/'
+    | '/cliente/pago-exitoso/'
+    | '/cliente/pago-fallido/'
+    | '/cliente/perfil/'
+    | '/cliente/tickets/'
     | '/tecnico/catalogo/'
     | '/tecnico/clientes/'
     | '/tecnico/dispositivos/'
@@ -354,8 +420,14 @@ export interface FileRouteTypes {
     | '/help-center'
     | '/settings'
     | '/tecnico'
+    | '/cliente/tickets/$ticketId'
     | '/tecnico/clientes/$clienteId'
     | '/tecnico/tickets/$ticketId'
+    | '/cliente/dispositivos'
+    | '/cliente/pago-exitoso'
+    | '/cliente/pago-fallido'
+    | '/cliente/perfil'
+    | '/cliente/tickets'
     | '/tecnico/catalogo'
     | '/tecnico/clientes'
     | '/tecnico/dispositivos'
@@ -386,8 +458,14 @@ export interface FileRouteTypes {
     | '/_authenticated/help-center/'
     | '/_authenticated/settings/'
     | '/_authenticated/tecnico/'
+    | '/_authenticated/cliente/tickets/$ticketId'
     | '/_authenticated/tecnico/clientes/$clienteId'
     | '/_authenticated/tecnico/tickets/$ticketId'
+    | '/_authenticated/cliente/dispositivos/'
+    | '/_authenticated/cliente/pago-exitoso/'
+    | '/_authenticated/cliente/pago-fallido/'
+    | '/_authenticated/cliente/perfil/'
+    | '/_authenticated/cliente/tickets/'
     | '/_authenticated/tecnico/catalogo/'
     | '/_authenticated/tecnico/clientes/'
     | '/_authenticated/tecnico/dispositivos/'
@@ -606,6 +684,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTecnicoCatalogoIndexRouteImport
       parentRoute: typeof AuthenticatedTecnicoRouteRoute
     }
+    '/_authenticated/cliente/tickets/': {
+      id: '/_authenticated/cliente/tickets/'
+      path: '/tickets'
+      fullPath: '/cliente/tickets/'
+      preLoaderRoute: typeof AuthenticatedClienteTicketsIndexRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
+    '/_authenticated/cliente/perfil/': {
+      id: '/_authenticated/cliente/perfil/'
+      path: '/perfil'
+      fullPath: '/cliente/perfil/'
+      preLoaderRoute: typeof AuthenticatedClientePerfilIndexRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
+    '/_authenticated/cliente/pago-fallido/': {
+      id: '/_authenticated/cliente/pago-fallido/'
+      path: '/pago-fallido'
+      fullPath: '/cliente/pago-fallido/'
+      preLoaderRoute: typeof AuthenticatedClientePagoFallidoIndexRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
+    '/_authenticated/cliente/pago-exitoso/': {
+      id: '/_authenticated/cliente/pago-exitoso/'
+      path: '/pago-exitoso'
+      fullPath: '/cliente/pago-exitoso/'
+      preLoaderRoute: typeof AuthenticatedClientePagoExitosoIndexRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
+    '/_authenticated/cliente/dispositivos/': {
+      id: '/_authenticated/cliente/dispositivos/'
+      path: '/dispositivos'
+      fullPath: '/cliente/dispositivos/'
+      preLoaderRoute: typeof AuthenticatedClienteDispositivosIndexRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
     '/_authenticated/tecnico/tickets/$ticketId': {
       id: '/_authenticated/tecnico/tickets/$ticketId'
       path: '/tickets/$ticketId'
@@ -620,16 +733,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTecnicoClientesClienteIdRouteImport
       parentRoute: typeof AuthenticatedTecnicoRouteRoute
     }
+    '/_authenticated/cliente/tickets/$ticketId': {
+      id: '/_authenticated/cliente/tickets/$ticketId'
+      path: '/tickets/$ticketId'
+      fullPath: '/cliente/tickets/$ticketId'
+      preLoaderRoute: typeof AuthenticatedClienteTicketsTicketIdRouteImport
+      parentRoute: typeof AuthenticatedClienteRouteRoute
+    }
   }
 }
 
 interface AuthenticatedClienteRouteRouteChildren {
   AuthenticatedClienteIndexRoute: typeof AuthenticatedClienteIndexRoute
+  AuthenticatedClienteTicketsTicketIdRoute: typeof AuthenticatedClienteTicketsTicketIdRoute
+  AuthenticatedClienteDispositivosIndexRoute: typeof AuthenticatedClienteDispositivosIndexRoute
+  AuthenticatedClientePagoExitosoIndexRoute: typeof AuthenticatedClientePagoExitosoIndexRoute
+  AuthenticatedClientePagoFallidoIndexRoute: typeof AuthenticatedClientePagoFallidoIndexRoute
+  AuthenticatedClientePerfilIndexRoute: typeof AuthenticatedClientePerfilIndexRoute
+  AuthenticatedClienteTicketsIndexRoute: typeof AuthenticatedClienteTicketsIndexRoute
 }
 
 const AuthenticatedClienteRouteRouteChildren: AuthenticatedClienteRouteRouteChildren =
   {
     AuthenticatedClienteIndexRoute: AuthenticatedClienteIndexRoute,
+    AuthenticatedClienteTicketsTicketIdRoute:
+      AuthenticatedClienteTicketsTicketIdRoute,
+    AuthenticatedClienteDispositivosIndexRoute:
+      AuthenticatedClienteDispositivosIndexRoute,
+    AuthenticatedClientePagoExitosoIndexRoute:
+      AuthenticatedClientePagoExitosoIndexRoute,
+    AuthenticatedClientePagoFallidoIndexRoute:
+      AuthenticatedClientePagoFallidoIndexRoute,
+    AuthenticatedClientePerfilIndexRoute: AuthenticatedClientePerfilIndexRoute,
+    AuthenticatedClienteTicketsIndexRoute:
+      AuthenticatedClienteTicketsIndexRoute,
   }
 
 const AuthenticatedClienteRouteRouteWithChildren =

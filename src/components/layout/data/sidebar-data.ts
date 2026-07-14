@@ -71,6 +71,7 @@ export function getSidebarData(
                 icon: Monitor,
               },
               { title: 'Mis tickets', url: '/cliente/tickets', icon: ListTodo },
+              { title: 'Mi perfil', url: '/cliente/perfil', icon: User },
             ],
           },
           otherGroup,

@@ -133,8 +133,8 @@ export function useTicketQuery(ticketId: string) {
   })
 }
 
-function useTicketMutation<TArgs>(
-  mutationFn: (args: TArgs) => Promise<unknown>
+function useTicketMutation<TArgs, TResult>(
+  mutationFn: (args: TArgs) => Promise<TResult>
 ) {
   const queryClient = useQueryClient()
   return useMutation({
