@@ -51,6 +51,7 @@ function makeTicket(overrides: Partial<TicketResponse>): TicketResponse {
     cliente_id: 'cliente-1',
     servicio_id: 'servicio-1',
     servicio_nombre: 'Reparación Dummy',
+    servicio_tipo: null,
     tecnico_id: 'tecnico-1',
     dispositivo_id: 'disp-1',
     dispositivo_marca: 'HP',
