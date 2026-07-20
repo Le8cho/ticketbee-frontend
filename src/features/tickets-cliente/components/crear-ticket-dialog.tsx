@@ -177,7 +177,8 @@ export function CrearTicketDialog({
                         {serviciosOrdenados.map((s) => (
                           <SelectItem key={s.servicio_id} value={s.servicio_id}>
                             {s.nombre}
-                            {s.tipo_servicio !== 'OTROS' && ` — S/ ${s.precio_base}`}
+                            {s.tipo_servicio !== 'OTROS' &&
+                              ` — S/ ${s.precio_base}`}
                           </SelectItem>
                         ))}
                       </SelectContent>
